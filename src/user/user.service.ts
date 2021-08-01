@@ -8,14 +8,6 @@ export class UserService {
 
   private readonly users: User[] = [];
 
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
-  }
-
-  findAll(): User[] {
-    return this.users
-    
-  }
   constructor() {
     this.users.push({
       id: 1,
@@ -25,9 +17,17 @@ export class UserService {
     });
   }
 
+  create(createUserDto: CreateUserDto) {
+    return 'This action adds a new user';
+  }
+  // pour retourner notre tableu de Users 
+  findAll(): User[] {
+    return this.users
+    
+  }
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.users;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
