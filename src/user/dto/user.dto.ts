@@ -1,13 +1,10 @@
-export class User {
+export class UserDto {
+    
     id: number;
     name: string;
     email: string;
-    password: string;
 
-    constructor(user?: User) {
+    constructor(user?: UserDto) {
         Object.assign(this, user);
     }
 }
-
-
-  

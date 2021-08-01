@@ -1,7 +1,8 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto, LoginUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { CreateUserDto, LoginUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { UserService } from '../service/user.service';
+
 
 @Controller('user')
 export class UserController {
@@ -22,9 +23,9 @@ export class UserController {
     return this.userService.findOne(+id);
   }
 
-  @Get('/login')
-   login(@Body() loginUserDto: LoginUserDto): boolean{
-    return false;
+  @Post('/login')
+   login(@Body() loginUserDto: LoginUserDto): boolean {
+    return this.userService.login(loginUserDto);
    }
   
 
